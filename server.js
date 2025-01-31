@@ -35,8 +35,9 @@ connection.connect((err) => {
   console.log('Connected to MySQL!');
 });
 
-app.get('/', (req, res) => {
-    connection.query('SELECT * FROM user', (err, results) => {
+// API for roster objects
+app.get('/roster', (req, res, next) => {
+    connection.query('SELECT * FROM roster', (err, results) => {
       if (err) {
         console.error('Error executing query:', err);
         res.status(500).send('Internal Server Error');
@@ -45,6 +46,54 @@ app.get('/', (req, res) => {
       res.json(results)
     });
   });
+
+// API for standings objects
+app.get('/standings', (req, res, next) => {
+  connection.query('SELECT * FROM standings', (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.json(results)
+  });
+});
+
+// API for champions objects
+app.get('/champions', (req, res, next) => {
+  connection.query('SELECT * FROM champions', (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.json(results)
+  });
+});
+
+// API for draft objects
+app.get('/draft', (req, res, next) => {
+  connection.query('SELECT * FROM draft', (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.json(results)
+  });
+});
+
+// API for owner objects
+app.get('/owner', (req, res, next) => {
+  connection.query('SELECT * FROM owner', (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.json(results)
+  });
+});
 
 app.listen(process.env.PORT,
     console.log(`Server started on port ${process.env.PORT}`)
