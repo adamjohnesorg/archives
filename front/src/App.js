@@ -1,11 +1,11 @@
 import Router from './Router'
-import Appbar from './pages/Appbar'
+import Navbar from './pages/Navbar'
 
 function App() {
     return (
       <>
         <div>
-          <Appbar />
+          <Navbar />
           <Router />
         </div>
       </>

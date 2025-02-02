@@ -3,22 +3,27 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {
-      '2xl': {'max': '1535px'},
+      '2xl': {'min': '1536px'},
       // => @media (max-width: 1535px) { ... }
 
-      'xl': {'max': '1279px'},
+      'xl': {'min': '1280px'},
       // => @media (max-width: 1279px) { ... }
 
-      'lg': {'max': '960px'},
+      'lg': {'min': '1024px'},
       // => @media (max-width: 1023px) { ... }
 
-      'md': {'max': '767px'},
+      'md': {'min': '768px'},
       // => @media (max-width: 767px) { ... }
 
-      'sm': {'max': '639px'},
+      'sm': {'min': '640px'},
       // => @media (max-width: 639px) { ... }
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        quicksand: ['Quicksand'],
+        poppins: ['Poppins']
+      }
+    },
   },
   plugins: [],
 }
