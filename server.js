@@ -95,6 +95,18 @@ app.get('/owner', (req, res, next) => {
   });
 });
 
+// API for owner objects
+app.get('/currentchamp', (req, res, next) => {
+  connection.query('SELECT * FROM champions left join owner on champions.id = owner.id where champions.year=' + parseInt(new Date().getFullYear() - 1), (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.json(results)
+  });
+});
+
 app.listen(process.env.PORT,
     console.log(`Server started on port ${process.env.PORT}`)
 );

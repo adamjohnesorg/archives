@@ -1,0 +1,7 @@
+#archives_logo_small {
+    max-width: 5em;
+}
+  
+.hoverElement:hover:active {
+    color: rgb(12 74 110);
+}
