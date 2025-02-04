@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
-import Select from 'react-select';
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+//import _ from 'lodash';
 import logo from '../imgs/archives_logo.png'
 import '../styles/navbar.css'
 
@@ -10,51 +9,69 @@ var names = []
 
 const Navbar = () => {
 
-  const [selectedOption, setSelectedOption] = useState('/Home')
-  const [owners, setOwners] = useState([])
-  
-  let navigate = useNavigate()
-
   useEffect(() => {
+    console.log('fetching...')
     fetch('http://192.168.1.77:3000/owner').then(res => res.json()).then(owners => setOwners(owners)).catch(err => console.log(err))
   }, [])
+
+  const [owners, setOwners] = useState([])
+  const navigate = useNavigate()
+  
+  const handlePlayerRoutes = (e) =>
+  {
+    navigate('/' + e.replace(' ', ''))
+  }
+
 
   if (owners.length > 0)
   {
     if (names.length < owners.length)
     {
       owners.map((person) =>
-        names.push({ value: '/' + person.firstName+person.lastName, label: person.firstName + ' ' + person.lastName})
+          names.push(person.firstName+ ' ' +person.lastName)
       )
+      names.sort()
     }
-    console.log(names)
+
     return (
       <>
         <div className="flex flex-col">
-          <div className='flex justify-evenly gap-8'>
-            <div className="flex items-center justify-center h-12 gap-6 w-6/12">
-              <div>
-                <Select 
-                  defaultValue={ selectedOption }
-                  onChange={ setSelectedOption }
-                  options={ names }
-                />
-                <Link className='hoverElement' to="/Home">Home</Link>
-              </div>
-              <div>
-                <Link className='hoverElement' to="/PageTwo">Champions</Link>
+          <div className='flex justify-evenly h-16'>
+            <div className="flex items-center justify-center w-4/12 bg-neutral-800">
+              <div className="w-full text-center">
+                    <select 
+                    className="w-8/12 text-center text-white text-sm p-2 border border-sky-900"
+                    onChange={ e => handlePlayerRoutes(e.target.value) }>
+                      <option value='Home'>Home ▼</option>
+                      { names.map((person)=>
+                        (
+                          <option>
+                            { person }
+                          </option>
+                        )
+                      )}
+                    </select>
+                </div>
+            </div>
+            <div className="flex items-center justify-center w-4/12 bg-neutral-800">
+              <div className="text-center">     
+                <p className="text-xl font-serif">MCHS { new Date().getFullYear() - 2014 }.0 Archives</p>
               </div>
             </div>
-            <div className="flex items-center justify-center h-12 gap-6 w-6/12">
-              <Link className='hoverElement' to={ selectedOption.value }>Standings</Link>
-              <Link className='hoverElement' to="/PageTwo">Members</Link>
+            <div className="flex items-center justify-center w-4/12 bg-neutral-800">
+              <div className='flex justify-center'>
+                <a href="http://192.168.1.77:3001/home">
+                  <img src={ logo } 
+                      alt='archives logo' 
+                      id='archives_logo_small'
+                      className='rounded-full h-14'
+                  />
+                </a>
+              </div>
             </div>
           </div>
-          <div className='flex justify-center h-10 bg-sky-900'>
-            <img src={ logo } alt='archives logo' id='archives_logo_small'
-                className='absolute top-9 rounded-full'/>
-          </div>
-          <div className="h-12"></div>
+          <div className="h-1 bg-neutral-900"></div>
+          <div className="h-14"></div>
         </div>
       </>
     );

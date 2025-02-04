@@ -1,7 +1,10 @@
 import React from 'react'
 
-export default function AdamJohnes() {
+const AdamJohnes = () =>
+{
   return (
     <div>AdamJohnes</div>
   )
 }
+
+export default AdamJohnes

@@ -85,7 +85,7 @@ app.get('/draft', (req, res, next) => {
 
 // API for owner objects
 app.get('/owner', (req, res, next) => {
-  connection.query('SELECT * FROM owner', (err, results) => {
+  connection.query('SELECT * FROM owner limit 10', (err, results) => {
     if (err) {
       console.error('Error executing query:', err);
       res.status(500).send('Internal Server Error');

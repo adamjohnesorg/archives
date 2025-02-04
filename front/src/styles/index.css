@@ -8,9 +8,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(25, 25, 25);
+  background-color: rgba(25, 25, 25, 0.975);
   color: white;
   font-family: 'quicksand'
+}
+
+select, option {
+  -webkit-appearance: none;
+  text-align-last: center;
+  background-color: rgb(25, 25, 25);
+}
+
+.select-wrapper:after {
+    content: '\0025BC';
+    font: normal normal normal 12px/1 FontAwesome;
+    color: white;
+    top: 28px;
+    height: 28px;
+    pointer-events: none;
 }
 
 @tailwind base;
