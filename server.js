@@ -18,8 +18,6 @@ app.post("/post", (req, res) => {
     res.redirect("/");
 });
 
-console.log(process.env.USERNAME)
-
 const connection = mysql.createConnection({
   host: process.env.HOST,
   user: process.env.DBUSERNAME,
