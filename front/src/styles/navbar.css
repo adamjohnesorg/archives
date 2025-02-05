@@ -5,3 +5,7 @@
 .hoverElement:hover:active {
     color: rgb(12 74 110);
 }
+
+.text-ss {
+    font-size: 9px;
+}

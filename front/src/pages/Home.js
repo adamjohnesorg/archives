@@ -1,31 +1,29 @@
-import { useEffect, useState } from "react";
 import tony from '../imgs/tony_winner.png'
 
 const Home = () => {
-
-  const [data, setData] = useState([])
-  useEffect(() => {
-    fetch('http://192.168.1.77:3000/currentchamp').then(res => res.json()).then(data => setData(data)).catch(err => console.log(err))
-  }, [])
-
-  if (data.length > 0)
-  {
-    return (
-      <> 
-        <div className="flex flex-col">
-          <div className="flex flex-col items-center text-center gap-2">
-            <h1>...and the { new Date().getFullYear() - 1} current champion of the<br />MCHS { new Date().getFullYear() - 2014 }.0 Fantasy Football league is...</h1>
-            <p className='text-4xl'>{data[0].firstName} {data[0].lastName}</p>
-            <img className='min-w-80 max-h-96' src={ tony } alt='our champion'/>
-            <p className="text-xs">Happy for you commiss</p>
-          </div>
-          <div>
-            
-          </div>
+  return (
+    <> 
+      <div className="h-12 w-full bg-zinc-800"></div>
+      <div className="flex flex-col items-center w-full bg-zinc-800">
+        <div className="flex flex-col gap-3 w-11/12 text-center">
+          <h1 className="text-2xl">Welcome to the MCHS { new Date().getFullYear() - 2014 }.0 Fantasy Football Archives</h1>
+          <p>What started as a friendly competition among high school friends has grown into an epic tradition spanning over a decade. Here, we celebrate the triumphs, heartbreaks, questionable trades, and trash talk that have defined our league.</p>
+          <p>This archive is not just a record of champions, but a testament to our loyalty, camaraderie, and shared obsession with football.</p>
+          <p>Whether you're here to relive your own glory days or to remind Tony Vitale that his reign as 2024 champ was a fluke, we hope this site brings a smile to your face and a spark to your competitive spirit.</p>
         </div>
-      </>
-    )
-  }
-};
+        <div className="flex flex-col w-full mt-6 mb-4 h-96">
+          <img className='w-full max-h-96' src={ tony } alt='our champion'/>
+        </div>
+        <div className="flex flex-col gap-3 w-11/12 text-center">
+          <p>Here’s to { new Date().getFullYear() - 2014 } years of friendship, football, and the fantasy league that refuses to die. May the best manager win!</p>
+        </div>
+        <div>
+          
+        </div>
+      </div>
+    </>
+  )
+}
+
 
 export default Home;

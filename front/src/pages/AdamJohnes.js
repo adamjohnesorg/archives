@@ -3,7 +3,7 @@ import React from 'react'
 const AdamJohnes = () =>
 {
   return (
-    <div>AdamJohnes</div>
+    <div className='bg-zinc-800'>AdamJohnes</div>
   )
 }
 
