@@ -13,7 +13,6 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    console.log('fetching...')
     fetch('http://192.168.1.77:3000/owner').then(res => res.json()).then(owners => setOwners(owners)).catch(err => console.log(err))
   }, [])
   
@@ -22,7 +21,6 @@ const Navbar = () => {
     navigate('/' + e.replace(' ', ''))
   }
 
-  console.log(owners)
   if (names.length < owners.length)
   {
     owners.map((person) =>
@@ -33,9 +31,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center">
-        <div className='flex justify-evenly h-16 w-full border-b-2 border-b-sky-900'>
-          <div className="flex items-center w-4/12 bg-zinc-800">
+      <div className="flex flex-col items-center sticky top-0 z-50">
+        <div className='flex justify-evenly h-16 w-full bg-gradient-to-r from-zinc-800 to-slate-700 border-b-2 border-b-black'>
+          <div className="flex items-center w-4/12 ">
             <div className="w-full text-center">
                 <p className="text-ss">Member Profiles</p>
                 <select 
@@ -52,13 +50,13 @@ const Navbar = () => {
                 </select>
             </div>
           </div>
-          <div className="w-1/12 bg-zinc-800"></div>
-          <div className="flex items-center justify-center w-7/12 bg-zinc-800">
+          <div className="w-1/12"></div>
+          <div className="flex items-center justify-center w-7/12 ">
             <div className="text-center">     
               <h1 className="text-xl ">MCHS { new Date().getFullYear() - 2014 }.0 Archives</h1>
             </div>
           </div>
-          <div className="absolute top-2 mr-20 bg-zinc-800">
+          <div className="absolute top-2 mr-20 ">
             <div>
               <a href="http://192.168.1.77:3001/home">
                 <img src={ logo } 
@@ -70,8 +68,8 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="h-2 bg-zinc-800 w-full"></div>
       </div>
+      <div className="h-2 bg-zinc-800 w-full"></div>
     </>
   );
 

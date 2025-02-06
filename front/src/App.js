@@ -6,7 +6,7 @@ function App() {
     return (
       <>
         <div>
-          <Navbar />
+          <Navbar/>
           <div className='flex flex-col items-center'>
             <Router />
           </div>
