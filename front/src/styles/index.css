@@ -16,7 +16,9 @@ header, h1, h2 {
 
 select, option {
   -webkit-appearance: none;
+  text-align: center;
   text-align-last: center;
+  -moz-text-align-last: center;
   background-color: rgb(25, 25, 25);
 }
 

@@ -28,15 +28,18 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) {
     console.error('Error connecting to MySQL:', err);
-    return;
+    process.exit(0)
   }
   console.log('Connected to MySQL!');
 });
 
 // API for roster objects
 app.get('/roster', (req, res, next) => {
-    connection.query(`SELECT * FROM roster`, (err, results) => {
-      if (err) {
+    connection.query(`SELECT distinct roster.*, owner.firstName, owner.lastName, standings.team
+                      FROM roster
+                      left join owner on roster.id = owner.id
+                      left join standings on owner.id = standings.id and roster.rosterYear = standings.year`,
+        (err, results) => { if (err) {
         console.error('Error executing query:', err);
         res.status(500).send('Internal Server Error');
         return;

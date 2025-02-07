@@ -9,13 +9,12 @@ const Standings = () => {
   const [pfHeavy, setPfHeavy] = useState([])
   const [pfLight, setPfLight] = useState([])
   const [paHeavy, setPaHeavy] = useState([])
-  const [paLight, setPaLight] = useState([])
-  const [togglePf, setTogglePf] = useState(true)
-  const [togglePa, setTogglePa] = useState(true)
+  const [paLight, setPaLight] = useState([]) // eslint-disable-next-line no-unused-vars
+  const [togglePf, setTogglePf] = useState(true) // eslint-disable-next-line no-unused-vars
+  const [togglePa, setTogglePa] = useState(true) 
   const [membersOrganized, setMembersOrganized] = useState([])
   const [worstRecords, setWorstRecords] = useState([])
   const [bestRecords, setBestRecords] = useState([])
-  const items = []
 
   const handleYear = () =>
   {
@@ -58,20 +57,7 @@ const Standings = () => {
     })
   }
 
-  items.push(
-    <tbody>
-      {standings.map((user, i) => (
-      <tr className='border-b-2 border-zinc-700' key={`${user.firstName} + ${user.lastName} + ${i}`}>
-        <td>{user.year}</td>
-        <td>{user.firstName + ' ' + user.lastName}</td>
-        <td>{user.team}</td>
-        <td>{user.pf}</td>
-        <td>{user.pa}</td>
-        <td>{user.record}</td>
-      </tr>
-      ))}
-    </tbody>
-  )
+    
 
   useEffect(() => {
       fetch('http://192.168.1.77:3000/fullstandingsrecent').then(res => res.json()).then(standings => { setStandings(standings); setDefaultState(standings); setStandingsOld(standings.slice().reverse()) }).catch(err => console.log(err))
@@ -87,17 +73,28 @@ const Standings = () => {
   return (
     <div className='w-full text-center'>
       <table className='text-[10px] bg-zinc-800'>
-        <thead className='sticky top-16 z-50 bg-zinc-800'>
+        <thead className='sticky top-16 z-50 bg-zinc-900'>
           <tr>
-            <th className='w-1/12'>Year<button className='text-center' onClick={ e => handleYear() }>⇅</button></th>
-            <th className='w-1/12'>Member <button className='text-center' onClick={ e => handleMembers() }>⇅</button></th>
-            <th className='w-2/12'>Team Name</th>
-            <th className='w-1/12'>PF<button onClick={ e => handlePf() }>⇅</button></th>
-            <th className='w-1/12'>PA<button onClick={ e => handlePa() }>⇅</button></th>
-            <th className='w-1/12'>Record<button onClick={ e => handleRecords() }>⇅</button></th>
+            <th className='w-2/12 text-[12px]'>Year <button className='text-center' onClick={ e => handleYear() }>⇅</button></th>
+            <th className='w-1/12 text-[12px]'>Member <button onClick={ e => handleMembers() }>↑</button></th>
+            <th className='w-2/12 text-[12px]'>Team Name </th>
+            <th className='w-1/12 text-[12px]'>PF <button onClick={ e => handlePf() }>⇅</button></th>
+            <th className='w-1/12 text-[12px]'>PA <button onClick={ e => handlePa() }>⇅</button></th>
+            <th className='w-1/12 text-[12px]'>Record <button onClick={ e => handleRecords() }>⇅</button></th>
           </tr>
         </thead>
-      { items }
+        <tbody>
+          {standings.map((user, i) => (
+          <tr className='border-b-2 border-zinc-700' key={`${user.firstName}-${user.lastName}-${user.year}-${user.pf}`}>
+            <td className='font-semibold'>{user.year}</td>
+            <td>{user.firstName + ' ' + user.lastName}</td>
+            <td>{user.team}</td>
+            <td>{user.pf}</td>
+            <td>{user.pa}</td>
+            <td>{user.record}</td>
+          </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   )

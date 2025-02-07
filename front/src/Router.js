@@ -6,6 +6,7 @@ import AdamJohnes from "./pages/AdamJohnes"
 import BrandonSanfilippo from "./pages/BrandonSanfilippo";
 
 import Standings from "./pages/Standings";
+import Rosters from "./pages/Rosters";
 
 const Router = () => (
   <Routes>
@@ -14,6 +15,7 @@ const Router = () => (
     <Route path='/AdamJohnes' element={<AdamJohnes />} />
     <Route path='/BrandonSanfilippo' element={<BrandonSanfilippo />} />
     <Route path='/Standings' element={<Standings />} />
+    <Route path='/Rosters' element={<Rosters />} />
     <Route path='/*' element={<NoPage />} />
   </Routes>
 );
