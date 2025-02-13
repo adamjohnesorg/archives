@@ -60,32 +60,33 @@ const Standings = () => {
     
 
   useEffect(() => {
-      fetch('http://192.168.1.77:3000/fullstandingsrecent').then(res => res.json()).then(standings => { setStandings(standings); setDefaultState(standings); setStandingsOld(standings.slice().reverse()) }).catch(err => console.log(err))
-      fetch('http://192.168.1.77:3000/fullstandingspfheavy').then(res => res.json()).then(pf => setPfHeavy(pf)).catch(err => console.log(err))
-      fetch('http://192.168.1.77:3000/fullstandingspflight').then(res => res.json()).then(pf => setPfLight(pf)).catch(err => console.log(err))
-      fetch('http://192.168.1.77:3000/fullstandingspaheavy').then(res => res.json()).then(pa => setPaHeavy(pa)).catch(err => console.log(err))
-      fetch('http://192.168.1.77:3000/fullstandingspalight').then(res => res.json()).then(pa => setPaLight(pa)).catch(err => console.log(err))
-      fetch('http://192.168.1.77:3000/fullstandingsmembers').then(res => res.json()).then(members => setMembersOrganized(members)).catch(err => console.log(err))
-      fetch('http://192.168.1.77:3000/fullstandingsworstrecords').then(res => res.json()).then(records => setWorstRecords(records)).catch(err => console.log(err))
-      fetch('http://192.168.1.77:3000/fullstandingsbestrecords').then(res => res.json()).then(records => setBestRecords(records)).catch(err => console.log(err))
+      fetch('http://192.168.1.77:3000/api/fullstandingsrecent').then(res => res.json()).then(standings => { setStandings(standings); setDefaultState(standings); setStandingsOld(standings.slice().reverse()) }).catch(err => console.log(err))
+      fetch('http://192.168.1.77:3000/api/fullstandingspfheavy').then(res => res.json()).then(pf => setPfHeavy(pf)).catch(err => console.log(err))
+      fetch('http://192.168.1.77:3000/api/fullstandingspflight').then(res => res.json()).then(pf => setPfLight(pf)).catch(err => console.log(err))
+      fetch('http://192.168.1.77:3000/api/fullstandingspaheavy').then(res => res.json()).then(pa => setPaHeavy(pa)).catch(err => console.log(err))
+      fetch('http://192.168.1.77:3000/api/fullstandingspalight').then(res => res.json()).then(pa => setPaLight(pa)).catch(err => console.log(err))
+      fetch('http://192.168.1.77:3000/api/fullstandingsmembers').then(res => res.json()).then(members => setMembersOrganized(members)).catch(err => console.log(err))
+      fetch('http://192.168.1.77:3000/api/fullstandingsworstrecords').then(res => res.json()).then(records => setWorstRecords(records)).catch(err => console.log(err))
+      fetch('http://192.168.1.77:3000/api/fullstandingsbestrecords').then(res => res.json()).then(records => setBestRecords(records)).catch(err => console.log(err))
   }, [])
 
   return (
     <div className='w-full text-center'>
+      <p className='bg-zinc-800 italic text-[9px] p-1'>*Half PPR introduced in 2018</p>
       <table className='text-[10px] bg-zinc-800'>
         <thead className='sticky top-16 z-50 bg-zinc-900'>
           <tr>
-            <th className='w-2/12 text-[12px]'>Year <button className='text-center' onClick={ e => handleYear() }>⇅</button></th>
-            <th className='w-1/12 text-[12px]'>Member <button onClick={ e => handleMembers() }>↑</button></th>
-            <th className='w-2/12 text-[12px]'>Team Name </th>
-            <th className='w-1/12 text-[12px]'>PF <button onClick={ e => handlePf() }>⇅</button></th>
-            <th className='w-1/12 text-[12px]'>PA <button onClick={ e => handlePa() }>⇅</button></th>
-            <th className='w-1/12 text-[12px]'>Record <button onClick={ e => handleRecords() }>⇅</button></th>
+            <th className='w-2/12 text-[11px]'>Year <button className='text-[14px]' onClick={ e => handleYear() }>⇅</button></th>
+            <th className='w-1/12 text-[11px]'>Member <button className='text-[14px]' onClick={ e => handleMembers() }>↑</button></th>
+            <th className='w-2/12 text-[11px]'>Team Name </th>
+            <th className='w-1/12 text-[11px]'>PF <button className='text-[14px]' onClick={ e => handlePf() }>⇅</button></th>
+            <th className='w-1/12 text-[11px]'>PA <button className='text-[14px]' onClick={ e => handlePa() }>⇅</button></th>
+            <th className='w-2/12 text-[11px]'>Record <button className='text-[14px]' onClick={ e => handleRecords() }>⇅</button></th>
           </tr>
         </thead>
         <tbody>
           {standings.map((user, i) => (
-          <tr className='border-b-2 border-zinc-700' key={`${user.firstName}-${user.lastName}-${user.year}-${user.pf}`}>
+          <tr className={`${ i % 2 !== 0 ? 'bg-zinc-700' : 'bg-zinc-800'} h-10`} key={`${user.firstName}-${user.lastName}-${user.year}-${user.pf}`}>
             <td className='font-semibold'>{user.year}</td>
             <td>{user.firstName + ' ' + user.lastName}</td>
             <td>{user.team}</td>

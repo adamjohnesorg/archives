@@ -1,7 +1,7 @@
 import MemberProfile from '../components/MemberProfile'
-import bb_png from '../imgs/memberprofiles/bbmp.png'
+//import bb_png from '../imgs/memberprofiles/bbmp.png'
 
-const BrandonSanfilippo = ({ members }) =>
+const TreyAguirre = ({ members }) =>
 {
 
   /*
@@ -22,9 +22,9 @@ const BrandonSanfilippo = ({ members }) =>
   if (members.length === 0) { return <p>Loading...</p>}
   return (
     <div>
-      <MemberProfile person = { members[1] } picture = { bb_png }/>
+      <MemberProfile person = { members[7] } />
     </div>
   )
 }
 
-export default BrandonSanfilippo
+export default TreyAguirre
