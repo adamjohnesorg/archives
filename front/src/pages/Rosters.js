@@ -73,7 +73,7 @@ const Rosters = () =>
           </div>
         </div>
         <div className="h-4"></div>
-        <table className="2xl: w-8/12 w-11/12 text-center ml-auto mr-auto">
+        <table className="2xl:w-8/12 w-11/12 text-center ml-auto mr-auto 2xl:h-[700px]">
           { selectedRoster.map(team => (
               <tbody>
                 <tr className="bg-zinc-700 p-1" key={`${team.year}-${team.team}-${Math.random()}`}>

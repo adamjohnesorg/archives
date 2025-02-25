@@ -13,7 +13,7 @@ function App() {
   })
 
   return (
-    <div className='flex flex-col 2xl:h-screen'>
+    <div className='flex flex-col 2xl:min-h-screen xl:min-h-screen lg:min-h-screen md:min-h-screen'>
       <Navbar members = { owners }/>
       <div className='flex flex-col items-center flex-grow bg-zinc-800'>
         <Router members = { owners }/>
