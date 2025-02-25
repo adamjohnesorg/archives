@@ -4,19 +4,10 @@ module.exports = {
   theme: {
     screens: {
       '2xl': {'min': '1536px'},
-      // => @media (max-width: 1535px) { ... }
-
-      'xl': {'min': '1280px'},
-      // => @media (max-width: 1279px) { ... }
-
-      'lg': {'min': '1024px'},
-      // => @media (max-width: 1023px) { ... }
-
-      'md': {'min': '768px'},
-      // => @media (max-width: 767px) { ... }
-
-      'sm': {'min': '640px'},
-      // => @media (max-width: 639px) { ... }
+      'xl': {'min': '1280px', 'max': '1535px'},
+      'lg': {'min': '1024px', 'max': '1279px'},
+      'md': {'min': '768px', 'max': '1023px'},
+      'sm': {'min': '640px', 'max': '767px'},
     },
     extend: {
       fontFamily: {

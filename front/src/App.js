@@ -11,17 +11,16 @@ function App() {
     .then(res => res.json()).then(owners => { setOwners(owners) })
     .catch(err => console.log(err))
   })
-    return (
-      <>
-        <div>
-          <Navbar members = { owners }/>
-          <div className='flex flex-col items-center'>
-            <Router members = { owners }/>
-          </div>
-          <Footer />
-        </div>
-      </>
-    );
-  }
+
+  return (
+    <div className='flex flex-col 2xl:h-screen'>
+      <Navbar members = { owners }/>
+      <div className='flex flex-col items-center flex-grow bg-zinc-800'>
+        <Router members = { owners }/>
+      </div>
+      <Footer />
+    </div>
+  );
+}
 
 export default App

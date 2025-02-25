@@ -44,7 +44,7 @@ const Drafts = () =>
                   ))}
         </select>
         <table className='w-full text-[10px] bg-zinc-800 border border-zinc-700'>
-          <thead className='sticky top-16 z-50 bg-zinc-900'>
+          <thead className='2xl:static sticky top-16 z-50 bg-zinc-900'>
             <tr>
               <th className='w-3/12 text-[14px] text-center'>Member</th>
               <th className='w-3/12 text-[14px] text-center'>Team Name</th>
@@ -77,7 +77,7 @@ const Drafts = () =>
                     </td>
                     <td className='flex items-center justify-center p-1'>
                       { player.player }
-                      <img className='h-8' src={ imgUrl } alt={'player portrait'} />
+                      <img className='h-8' src={ imgUrl } alt='' />
                     </td>
                     <td>
                       { player.pick }

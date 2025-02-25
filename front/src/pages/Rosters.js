@@ -73,11 +73,11 @@ const Rosters = () =>
           </div>
         </div>
         <div className="h-4"></div>
-        <table className="w-11/12 text-center ml-auto mr-auto">
+        <table className="2xl: w-8/12 w-11/12 text-center ml-auto mr-auto">
           { selectedRoster.map(team => (
               <tbody>
                 <tr className="bg-zinc-700 p-1" key={`${team.year}-${team.team}-${Math.random()}`}>
-                  <th className='w-4/12 text-[16px]'>Team</th>
+                  <th className='text-[16px]'>Team</th>
                   <td className="font-mono text-[17px] p-1">{team.team}</td>
                 </tr>
                 <tr key={`${team.year}-${team.quarterback}-${Math.random()}`}>
@@ -149,7 +149,6 @@ const Rosters = () =>
           }
         </table>
         <div className="h-1 bg-zinc-800 w-full p-1"></div>
-        <p className="text-[8px]">1. Flex is used in place of WR3 for seasons before 2018.</p>
       </div>
     </>
   )
