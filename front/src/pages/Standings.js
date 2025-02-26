@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import _ from 'lodash';
 
-const Standings = () => {
+const Standings = ({ members }) => {
 
   const [defaultState, setDefaultState] = useState([])
   const [standings, setStandings] = useState([])
@@ -70,11 +70,13 @@ const Standings = () => {
       fetch('api/fullstandingsbestrecords').then(res => res.json()).then(records => setBestRecords(records)).catch(err => console.log(err))
   }, [])
 
+  if (members.length === 0 || standings.length === 0){ return ( <p>Loading...</p> )}
+
   return (
     <div className='w-full text-center flex flex-col justify-center items-center'>
       <p className='bg-zinc-800 italic text-[9px] p-1'>*Half PPR introduced in 2018</p>
-      <table className='text-[10px] bg-zinc-800 w-11/12'>
-        <thead className='sticky top-16 z-50 bg-zinc-900'>
+      <table className='text-[10px] bg-zinc-800 w-11/12 border border-gray-500'>
+        <thead className='sticky top-16 z-10 bg-zinc-900'>
           <tr>
             <th className='w-2/12 text-[11px]'>Year <button className='text-[14px] active:bg-sky-700' onClick={ e => handleYear() }>⇅</button></th>
             <th className='w-1/12 text-[11px]'>Member <button className='text-[14px] active:bg-sky-700' onClick={ e => handleMembers() }>↑</button></th>
@@ -97,6 +99,30 @@ const Standings = () => {
           ))}
         </tbody>
       </table>
+      <div className='h-8'></div>
+      <div className='p-2 w-10/12 flex flex-col items-center justify-center'>
+        <h1 className='text-[28px]'>Overall Standings</h1>
+        <table className='text-[18px] bg-zinc-800 w-full'>
+          <thead>
+            <tr>
+              <th className='w-5/12 p-1 md:w-3/12 lg:w-3/12 xl:w-3/12 2xl:w-3/12'>Member</th>
+              <th className='w-3/12 p-1'>Record</th>
+              <th className='w-3/12 p-1'>Championships</th>
+              <th className='w-3/12 p-1'>Bowls</th>
+            </tr>
+          </thead>
+          <tbody>
+            { members.map((member) => (
+              <tr className='h-10 border border-gray-500'>
+                <td className='font-serif p-1'>{member.firstName + " " + member.lastName}</td>
+                <td className='font-serif'>{member.record}</td>
+                <td className='font-serif'>{member.championships}</td>
+                <td className='font-serif'>{member.bowls || 0}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

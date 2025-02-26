@@ -56,7 +56,7 @@ const Navbar = ({ members }) => {
           
           <div className="flex items-center justify-center w-4/12 p-0.5">
             <div className="text-center">     
-              <h1 className="text-lg sm:text-[30px] italic font-bold">MCHS { new Date().getFullYear() - 2014 }.0 Archives</h1>
+              <h1 className="2xl:text-4xl xl:text-4xl lg:text-4xl italic font-bold">MCHS { new Date().getFullYear() - 2014 }.0 Archives</h1>
             </div>
           </div>
           <div className='w-4/12'>

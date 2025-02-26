@@ -40,6 +40,8 @@ const Rosters = () =>
     }
   }
 
+  if (roster.length === 0 ){ return ( <p>Loading...</p> )}
+
   return (
     <>
       <div className="h-1 bg-zinc-800 w-full"></div>
@@ -73,7 +75,7 @@ const Rosters = () =>
           </div>
         </div>
         <div className="h-4"></div>
-        <table className="2xl:w-8/12 w-11/12 text-center ml-auto mr-auto 2xl:h-[700px]">
+        <table className="2xl:w-8/12 w-11/12 text-center ml-auto mr-auto 2xl:h-[700px] border border-gray-300">
           { selectedRoster.map(team => (
               <tbody>
                 <tr className="bg-zinc-700 p-1" key={`${team.year}-${team.team}-${Math.random()}`}>

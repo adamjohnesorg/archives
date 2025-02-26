@@ -23,7 +23,6 @@ const Champions = () =>
     return jsxElements 
   }
 
-  console.log(champions)
   if (champions.length === 0) { return <p>Loading...</p>}
   return (
     <div className='w-full'>

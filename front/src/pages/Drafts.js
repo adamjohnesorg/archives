@@ -31,6 +31,8 @@ const Drafts = () =>
     setSelectedDraft(draft.filter(pick => pick.year === value));
   }
 
+  if (draft.length === 0){ return ( <p>Loading...</p> )}
+
   return (
     <>
       <div className='h-1 w-full bg-zinc-800'></div>
