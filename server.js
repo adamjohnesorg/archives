@@ -15,7 +15,6 @@ const PORT = process.env.PORT || 8080;
 app.use(cors(corsOptions));
 
 app.post("/post", (req, res) => {
-    res.end('hellloooo!')
     res.redirect("/");
 });
 
