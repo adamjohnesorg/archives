@@ -26,6 +26,14 @@ const ownersRoutes = require("./routes/api/Owners")
 const draftsRoutes = require("./routes/api/Drafts")
 const playersRoutes = require("./routes/api/Players")
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, "front", "build")));
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "front", "build", "index.html"));
+    });
+}
+
 app.use("/api", standingsRoutes); // Prefix all API routes with '/api'
 app.use("/api", rostersRoutes)
 app.use("/api", championsRoutes)
