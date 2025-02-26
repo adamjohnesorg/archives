@@ -9,13 +9,13 @@ const fs = require('fs')
 
 dotenv.config({ path: path.join(__dirname, './.env') })
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Cross Origin Resource Sharing
 app.use(cors(corsOptions));
 
 app.post("/post", (req, res) => {
-    console.log("Connected to React");
+    res.end('hellloooo!')
     res.redirect("/");
 });
 
