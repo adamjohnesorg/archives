@@ -28,7 +28,7 @@ const Navbar = ({ members }) => {
           <div className="flex items-center justify-center w-4/12">
             <div>
               <div>
-                <a href="https://archives-prod-88c3247d4963.herokuapp.com/home">
+                <a href="http://www.618ffarchives.com/home">
                   <img src={ logo } 
                       alt='archives logo' 
                       id='archives_logo_small'
