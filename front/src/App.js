@@ -7,7 +7,7 @@ function App() {
 
   const [owners, setOwners] = useState([])
   useEffect(() => {
-    fetch('https://archives-prod-88c3247d4963.herokuapp.com/api/owners')
+    fetch('/api/owners')
     .then(res => res.json()).then(owners => { setOwners(owners) })
     .catch(err => console.log(err))
   })

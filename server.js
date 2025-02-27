@@ -26,18 +26,18 @@ const ownersRoutes = require("./routes/api/Owners")
 const draftsRoutes = require("./routes/api/Drafts")
 const playersRoutes = require("./routes/api/Players")
 
-app.use(express.static(path.join(__dirname, "front/build")));
-
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "front/build", "index.html"));
-});
-
 app.use("/api", standingsRoutes); // Prefix all API routes with '/api'
 app.use("/api", rostersRoutes)
 app.use("/api", championsRoutes)
 app.use("/api", ownersRoutes)
 app.use("/api", draftsRoutes)
 app.use("/api", playersRoutes)
+
+app.use(express.static(path.join(__dirname, "front/build")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "front/build", "index.html"));
+});
 
 app.listen(process.env.PORT,
     console.log(`Server started on port ${process.env.PORT}`)
