@@ -57,8 +57,6 @@ const Standings = ({ members }) => {
     })
   }
 
-    
-
   useEffect(() => {
       fetch('api/fullstandingsrecent').then(res => res.json()).then(standings => { setStandings(standings); setDefaultState(standings); setStandingsOld(standings.slice().reverse()) }).catch(err => console.log(err))
       fetch('api/fullstandingspfheavy').then(res => res.json()).then(pf => setPfHeavy(pf)).catch(err => console.log(err))

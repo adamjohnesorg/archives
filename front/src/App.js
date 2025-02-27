@@ -7,7 +7,7 @@ function App() {
 
   const [owners, setOwners] = useState([])
   useEffect(() => {
-    fetch('http://192.168.1.77:3000/api/owners')
+    fetch('api/owners')
     .then(res => res.json()).then(owners => { setOwners(owners) })
     .catch(err => console.log(err))
   })
