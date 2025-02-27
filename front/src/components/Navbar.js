@@ -61,7 +61,7 @@ const Navbar = ({ members }) => {
           </div>
           <div className='w-4/12'>
             <div>
-              <a href="https://archives-prod-88c3247d4963.herokuapp.com/home"><button className='w-9/12 bg-zinc-800 border border-sky-900 p-1 m-1 text-sm active:bg-zinc-400'>Home</button></a>
+              <a href="http://www.618ffarchives.com/home"><button className='w-9/12 bg-zinc-800 border border-sky-900 p-1 m-1 text-sm active:bg-zinc-400'>Home</button></a>
             </div>
           </div>
         </div>
