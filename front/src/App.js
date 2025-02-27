@@ -10,7 +10,7 @@ function App() {
     fetch('/api/owners')
     .then(res => res.json()).then(owners => { setOwners(owners) })
     .catch(err => console.log(err))
-  })
+  }, [])
 
   return (
     <div className='flex flex-col 2xl:min-h-screen xl:min-h-screen lg:min-h-screen md:min-h-screen'>
