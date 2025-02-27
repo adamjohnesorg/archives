@@ -9,7 +9,7 @@ const fs = require('fs')
 
 dotenv.config({ path: path.join(__dirname, './.env') })
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 // Cross Origin Resource Sharing
 app.use(cors(corsOptions));
