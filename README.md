@@ -1,5 +1,5 @@
 # Fantasy Football Archives
-Full developed by Adam Johnes
+Fully developed by Adam Johnes
 
 This project was created with the intent to preserve historical records of our fantasy football league whenever we inevitably migrate from Yahoo Fantasy Football to Sleeper. Yahoo does not do a sufficient job at maintaining these records with both their UI and API so I decided to take it upon myself to create an online historical archive of our league to preserve our memories, moments and winners.
 
